@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export const NoticiasHome = () => {
-  // Estado para cada noticia
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className='grid justify-center relative z-40 -mt-5'>
+    <div className='grid justify-center relative z-40 -mt-10'>
         <h2 className='text-center font-semibold text-5xl mb-10'>Ultimas Noticias</h2>
         <div className="flex w-full gap-20 justify-center p-6 pb-32">
             {["Etiqueta de Hover 1", "Etiqueta de Hover 2"].map((text, index) => (

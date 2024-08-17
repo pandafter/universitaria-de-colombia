@@ -1,13 +1,15 @@
 import NumberTicker from "@/components/magicui/number-ticker";
-import imgPrueba from "../../../assets/Panoramica_skyline_ciudad.jpg"
 
 export const HeroHome = () => {
   return (
-    <div className="h-full justify-center relative top-[14vh]"> 
-      <div 
-        className="relative left-[2.5vw] bg-gray-300 w-[95vw] h-[65vh] bg-cover bg-center"
-        style={{ backgroundImage: `url(${imgPrueba})` }} 
-      >
+    <div className="h-full justify-center relative top-[14vh]">
+      <div className="relative left-[2.5vw] bg-gray-300 w-[95vw] h-[65vh] bg-cover bg-center">
+        <img 
+          src="https://pandafterimages.s3.us-east-2.amazonaws.com/Panoramica_skyline_ciudad_1.webp" 
+          alt="Skyline" 
+          className="w-full h-full object-cover" 
+          loading="eager" 
+        />
         <div className="flex gap-[0.6em] justify-center">
           <div className="w-[2.5em] h-[0.6em] bg-white border-[2px] border-background rounded-[15px] relative top-[0.5em] left-[0.5em]" />
           <div className="w-[2.5em] h-[0.6em] bg-white border-[2px] border-background rounded-[15px] relative top-[0.5em] left-[0.5em]" />

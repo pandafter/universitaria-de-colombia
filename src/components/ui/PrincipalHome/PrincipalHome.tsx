@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import imgEjm from '../../../assets/imgEjemplo1.jpg'
 import { motion } from 'framer-motion'
+
+const imgEjm = "https://pandafterimages.s3.us-east-2.amazonaws.com/imgEjemplo1.webp"
 
 export const PrincipalHome = () => {
 
@@ -13,8 +14,8 @@ export const PrincipalHome = () => {
     return (
         <div className="w-full h-[100vw] relative">
             <div className="flex gap-10 justify-center top-56 relative">
-                <div className="h-[55vh] w-[38vw] bg-blue-500 flex justify-center">
-                    <img src={imgEjm} alt='imgEjm1' width={1000}/>
+                <div className=" bg-blue-500 flex justify-center">
+                    <img src={imgEjm} alt='imgEjm1' width={600} height={200}/>
                     <div className="absolute top-[60vh]">
                         <motion.button
                             className="relative overflow-hidden bg-gradient-to-t from-[#FFBC00] to-[#FF8800] py-3 px-16 font-semibold text-white text-lg"
@@ -23,8 +24,8 @@ export const PrincipalHome = () => {
                         </motion.button>
                     </div>
                 </div>
-                <div className="h-[55vh] w-[38vw] bg-blue-500 flex justify-center">
-                    <img src={imgEjm} alt='imgEjm1' width={1000}/>
+                <div className="bg-blue-500 flex justify-center">
+                    <img src={imgEjm} alt='imgEjm1' width={600} height={200}/>
                     <div className="absolute top-[60vh]">
                         <motion.button
                             className="relative overflow-hidden bg-gradient-to-t from-[#FFBC00] to-[#FF8800] py-3 px-16 font-semibold text-white text-lg"

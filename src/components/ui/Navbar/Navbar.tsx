@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoUniversitaria from '../../../assets/logoUniversitaria.png';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 
 export const Navbar: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="relative left-[-10em]">
-              <img src={logoUniversitaria} alt="Logo" />
+              <img src='https://pandafterimages.s3.us-east-2.amazonaws.com/logoUniversitaria.webp' alt="Logo" width={130} height={30}/>
             </Link>
             <Link to="/universidad" className="text-white font-bold py-6 px-4 flex items-center">Universidad</Link>
             <Link to="/convenios" className="text-white font-bold py-6 px-4 flex items-center">Convenios</Link>
