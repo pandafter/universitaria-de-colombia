@@ -14,7 +14,8 @@ export async function getCoordinates(address: string): Promise<{ lat: number; ln
     const location = data.results[0]?.geometry?.location;
     if (location) {
       const result = { lat: location.lat, lng: location.lng };
-      // Guardar datos en el almacenamiento de sesión
+
+      // Guardar datos en el almacenamiento de sesión actual
       sessionStorage.setItem(cacheKey, JSON.stringify(result));
       return result;
     }

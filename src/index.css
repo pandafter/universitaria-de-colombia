@@ -61,6 +61,15 @@
   }
 }
 
+
+#documentos li:hover {
+  @apply text-neutral-200
+}
+
+#info p:hover {
+  @apply text-neutral-400
+}
+
 @layer base {
   * {
     @apply border-border;

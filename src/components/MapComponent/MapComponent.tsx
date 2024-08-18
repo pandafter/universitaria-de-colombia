@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { getCoordinates } from '../../services/geocodeService';
 import CustomInfoWindow from '../CustomInfoWindow/CustomInfoWindow'; 
@@ -7,13 +7,6 @@ const initialCenter = {
   lat: 4.623,
   lng: -74.066
 };
-
-const addresses = [
-  "Institución Universitaria de Colombia, Sede 2",
-  "Institución Universitaria de Colombia, Sede 3",
-  "Institución Universitaria de Colombia",
-  "Cra. 7 #3020, Santa Fé, Bogotá"
-];
 
 interface Location {
   lat: number;
@@ -25,6 +18,14 @@ export const MapComponent: React.FC = () => {
   const [locations, setLocations] = useState<Location[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const [showInfoWindow, setShowInfoWindow] = useState(false);
+
+  const addresses = useMemo(() => [
+    "Institución Universitaria de Colombia, Sede 2",
+    "Institución Universitaria de Colombia, Sede 3",
+    "Institución Universitaria de Colombia",
+    "Cra. 7 #3020, Santa Fé, Bogotá"
+  ], []);
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
     libraries: ['places']
@@ -36,12 +37,14 @@ export const MapComponent: React.FC = () => {
         const coordinates = await getCoordinates(address);
         return coordinates ? { lat: coordinates.lat, lng: coordinates.lng, details: address } : null;
       });
+
       const results = await Promise.all(locationPromises);
-      setLocations(results.filter((location): location is Location => location !== null));
+      const validLocations = results.filter((location): location is Location => location !== null);
+      setLocations(validLocations);
     };
 
     fetchLocations();
-  }, []);
+  }, [addresses]);
 
   const handleMarkerClick = (location: Location) => {
     setSelectedLocation(location);
@@ -52,11 +55,13 @@ export const MapComponent: React.FC = () => {
     setShowInfoWindow(false);
   };
 
+  const mapContainerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
+
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={mapContainerStyle}>
       {isLoaded && (
         <GoogleMap
-          mapContainerStyle={{ width: '100%', height: '100%' }}
+          mapContainerStyle={mapContainerStyle}
           zoom={18}
           center={initialCenter}
           options={{
@@ -84,7 +89,6 @@ export const MapComponent: React.FC = () => {
             />
           ))}
 
-          {/* Renderiza CustomInfoWindow solo si showInfoWindow es true y selectedLocation tiene un valor */}
           {showInfoWindow && selectedLocation && (
             <CustomInfoWindow
               position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }}

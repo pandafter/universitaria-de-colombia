@@ -27,7 +27,7 @@ export const ProgramasHome = () => {
   ];
 
   return (
-    <div className="grid justify-center w-[100vw] h-full mb-44 -mt-10 ml-28">
+    <div className="grid justify-center w-[100vw] h-full mb-[40vh] -mt-[10vh] ml-28 relative">
         <h2 className="font-semibold text-5xl mb-16 ml-44">Programas Académicos</h2>
         <div className="flex gap-14 text w-full">
             <div className="grid w-full gap-10 font-semibold">
@@ -43,8 +43,8 @@ export const ProgramasHome = () => {
                   </button>
                 ))}
             </div>
-            <div className="w-[60vw] h-full bg-white relative -left-52 -ml-28">
-              <ul>
+            <div className="w-[60vw] h-full bg-white relative -left-52 -ml-28 -z-50">
+              <ul className='relative'>
                 {categoryData[selectedButton]?.map((item, idx) => (
                   <li key={idx} className="py-2 px-4 border-b">
                     {item}

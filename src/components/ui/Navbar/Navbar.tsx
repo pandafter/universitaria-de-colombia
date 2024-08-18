@@ -126,8 +126,8 @@ export const Navbar: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Link to="/estudiantes/aula-virtual" className="block p-2 hover:bg-gray-200">Aula Virtual</Link>
-                  <Link to="/estudiantes/portal-notas" className="block p-2 hover:bg-gray-200">Portal Notas</Link>
+                  <Link to="https://ww1.aulavirtualuniversitariadecolombia.co/login/index.php" className="block p-2 hover:bg-gray-200">Aula Virtual</Link>
+                  <Link to="https://www.iudcportal.com" className="block p-2 hover:bg-gray-200">Portal Notas</Link>
                 </motion.div>
               )}
             </motion.div>
